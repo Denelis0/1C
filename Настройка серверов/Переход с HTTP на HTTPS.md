@@ -142,6 +142,7 @@ RewriteRule ^/?(.*) https://%{SERVER_NAME}/$1[R=301,L]
 ### Шаг 8. Апач сейчас ничего не знает про второй файл. Его нужно «включить».
 
 **Выполняем команды по очереди: `sudo a2ensite default-ssl.conf`. Проверяем, не опечатались ли мы и делаем рестарт: `sudo apache2ctl configtest` и `sudo systemctl restart apache2`.**
+
 ---
 
 ### Важный нюанс для реальной жизни:
