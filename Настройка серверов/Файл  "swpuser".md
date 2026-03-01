@@ -41,17 +41,16 @@ sudo chmod -R 750 /opt/1cv8
 sudo chown -R 1c_manager:grp1cv8 /var/1c_cluster
 
 # Даем полные права владельцу и группе
-sudo chmod -R 770 /var/1c_cluster
+sudo chmod -R 2750 /var/1c_cluster
 
-# Включаем бит SGID
+# Включаем бит SGID (не нужна)
 sudo chmod g+s /var/1c_cluster
 ```
 
 **2. Папка логов (Технологический журнал):**
 ```bash
 sudo chown -R 1c_manager:grp1cv8 /var/log/1c
-sudo chmod -R 770 /var/log/1c
-sudo chmod g+s /var/log/1c
+sudo chmod -R 2770 /var/log/1c
 ```
 
 ### Шаг 4. Создаем файл `swpuser.ini`
@@ -72,7 +71,7 @@ sudo chmod g+s /var/log/1c
 4. Назначаем права на сам этот файл:
    ```bash
    sudo chown 1c_manager:grp1cv8 /var/1c_cluster/swpuser.ini
-   sudo chmod 640 /var/1c_cluster/swpuser.ini
+   sudo chmod 600 /var/1c_cluster/swpuser.ini
    ```
 
 ### Шаг 5. Переводим главного Агента (`ragent`) на запуск от `root`
