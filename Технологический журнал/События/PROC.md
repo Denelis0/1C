@@ -38,7 +38,8 @@
 
 1. Если умер `rmngr`, то пишется в `ragent_PID` строчка `Supervision time expired` и pid процессов rphosts. После пишется `Process finished` и pid умирающего процесса. После этого начинается замена процесса новым - `Run process` (для `rmngr` и как минимум для одного `prhost`). После этого `ragent` отслеживает разрыв соединений (`Updated cached ping params for output cluster connection`) и после запускает режим отладки, то есть определенный компнонет (`1C:Enterprise 8.3 (x86-64) (8.3.27.1859) Search server (debug) started`).
 
-2. Если умер `rmngr`, то пишется в `ragent_PID` строчки:
+2. Если умер `ragent`, то пишется в `ragent_PID` строчки:
+   * `'Process finished pid=pid_менеджера` - остановился старый процесс `rmngr`.
    * `Err=0,Txt=1C:Enterprise 8.3 (x86-64) (8.3.27.1859) Server Agent (debug) started` - создался новый `ragent`.
    * `Txt=Run process` - запустил процесс (`rmngr`).
    * `Func=authenticateStarter` - авторизация.
