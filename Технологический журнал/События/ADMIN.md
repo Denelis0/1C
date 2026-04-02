@@ -25,6 +25,7 @@
     *   `eraseSeance` — убил чужой сеанс.
     *   `eraseRegUser` /` insertRegUser` - удалил/создал админа кластера.
     *   `eraseAgentUser` / `insertAgentUser` - удалил/создал админа сервера.
+    *   `getServerProcesses` - получить список рабочих процессов (`rphost`).
     *   `getSeances` - получил список сеансов.
     *   `getInfoBases` — получил базу.
     *   `updateRegServer` — изменил свойства рабочего сервера:
