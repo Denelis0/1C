@@ -23,6 +23,8 @@
 В `ragent_PID`:
 *   **`Func` (Действие)** — Какую именно кнопку нажал администратор.
     *   `eraseSeance` — убил чужой сеанс.
+    *   `regAuthenticate` - авторизовался в кластере (по `t:clientID` можно понять кто - событие `ADMIN`).
+    *   `agentAuthenticate` - авторизовался на сервере (по `t:clientID` можно понять кто - событие `ADMIN`).
     *   `eraseRegUser` /` insertRegUser` - удалил/создал админа кластера.
     *   `eraseAgentUser` / `insertAgentUser` - удалил/создал админа сервера.
     *   `getServerProcesses` - получить список рабочих процессов (`rphost`).
@@ -45,8 +47,6 @@
 В `rphost_PID`:
 *   **`Func` (Действие)** — Какую именно кнопку нажал администратор.
     *   `createInfoBase` — создал базу.
-    *   `regAuthenticate` - авторизовался в кластере (по `t:clientID` можно понять кто - событие `ADMIN`).
-    *   `agentAuthenticate` - авторизовался на сервере (по `t:clientID` можно понять кто - событие `ADMIN`).
     *   `Ref` - название новой базы.
     *   `getInfoBaseParams` - просмотрел параметры базы в кластере.
     *   `killClient` - убить сеанс.
