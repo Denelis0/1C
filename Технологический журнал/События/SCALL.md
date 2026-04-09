@@ -122,40 +122,40 @@ Context='
 Ссылка: https://infostart.ru/1c/articles/1407627/
 
 Чтобы пойти дальше по событиям, нужно понять - что происходит, когда клиент подключается к кластеру. Первое – клиент первоначально устанавливает соединение с rmng.
-Второе – rmng создает сеанс. Сеанс – это некая абстрактная сущность, которая представляет пользователя в системе:
+* Второе – rmng создает сеанс. Сеанс – это некая абстрактная сущность, которая представляет пользователя в системе:
 rmngr:
 `01:05.213000-14996,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=1,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12804,MName=createRemoteInstance,DstClientID=0
 01:05.229000-15999,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=1,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,CallID=12805,MName=methodsCount,DstClientID=248048
 01:05.229002-1,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=1,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,Method=0,CallID=12806,MName=selectProcess,DstClientID=248048
 01:05.229004-1,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=1,CallID=12807,MName=Release,DstClientID=248048`
 
-Что-то делает
+* Что-то делает
 rphost:
 `01:05.244002-1,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=2,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12808,MName=createRemoteInstance,DstClientID=0
 01:05.479000-218999,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=2,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12809,MName=createRemoteInstance,DstClientID=0
 01:05.479003-1,SCALL,2,level=INFO,process=1cv8c,OSThread=12188,ClientID=2,Interface=bc15bd01-10bf-413c-a856-ddc907fcd123,IName=IVResourceRemoteConnection,CallID=12810,MName=methodsCount,DstClientID=81104`
 
-Третье – rmng выделяет под сеанс определенные место в сеансовых данных:
+* Третье – rmng выделяет под сеанс определенные место в сеансовых данных:
 rmngr:
 `01:05.510001-30992,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=3,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12811,MName=createRemoteInstance,DstClientID=0
 01:05.510003-1,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=3,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,CallID=12812,MName=methodsCount,DstClientID=248049
 01:05.510005-1,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=3,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,Method=0,CallID=12813,MName=selectProcess,DstClientID=248049
 01:05.510007-1,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=3,CallID=12814,MName=Release,DstClientID=248049`
 
-Что-то делает
+* Что-то делает
 rphost:
 `01:05.557000-15999,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=4,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12815,MName=createRemoteInstance,DstClientID=0
 01:05.557004-1,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=4,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12816,MName=createRemoteInstance,DstClientID=0
 01:05.557007-1,SCALL,3,level=INFO,process=1cv8c,OSThread=12188,ClientID=4,Interface=bc15bd01-10bf-413c-a856-ddc907fcd123,IName=IVResourceRemoteConnection,CallID=12817,MName=methodsCount,DstClientID=81105`
 
-Четвертое – rmng назначает сеанс на какой-то рабочий процесс rphost и пятое – клиент устанавливает с этим rphost TCP соединение:
+* Четвертое – rmng назначает сеанс на какой-то рабочий процесс rphost и пятое – клиент устанавливает с этим rphost TCP соединение:
 rmngr:
 `01:05.869000-45996,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=5,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12818,MName=createRemoteInstance,DstClientID=0
 01:05.869002-1,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=5,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,CallID=12819,MName=methodsCount,DstClientID=248051
 01:05.869004-1,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=5,Interface=73b7d3a3-fe0b-4fdf-ba70-b74b3589ffc3,IName=ISelectSrvrProcess,Method=0,CallID=12820,MName=selectProcess,DstClientID=248051
 01:05.869006-1,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=5,CallID=12821,MName=Release,DstClientID=248051`
 
-Пошла работа
+* Пошла работа
 rphost:
 `01:05.901000-15997,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=6,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12822,MName=createRemoteInstance,DstClientID=0
 01:05.916000-14997,SCALL,4,level=INFO,process=1cv8c,OSThread=12188,ClientID=6,Interface=7f58f27d-5ad8-43a1-aa1e-c982f41bed5c,IName=IRemoteCreatorService,Method=0,CallID=12823,MName=createRemoteInstance,DstClientID=0
