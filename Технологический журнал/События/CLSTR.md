@@ -65,6 +65,27 @@
 
 ---
 
+`rphost`:
+
+1. `./26041518.log:30:00:05.368001-0,CLSTR,2,level=INFO,process=rphost,p:processName=test_base,OSThread=199100,t:clientID=170907,t:applicationName=BackgroundJob,t:computerName=app,t:connectID=3359802,
+Event=Successful service call,RmngrURL=tcp://app:1541,ServiceName=SessionDataService,ExtData=BackgroundJob.CommonModule.ЦентрМониторингаСлужебный.ОтправитьТестовыйПакет,SessionID=19e5adbd-96d6-4d79-ba2a-82a95104a8c6,TargetCall=0`
+**Разбор параметров:**
+*   `Event=Successful service call` - rphost (фоновое задание) запросил записать или прочитать данные из сеансовых данных (сервис SessionDataService).
+*   `RmngrURL=tcp://app:1541` - на каком сервере находится `rmngr`, чтобы получить сеансовые данные.
+
+2. `./26041511.log:1036:01:51.732005-0,CLSTR,2,level=INFO,process=rphost,p:processName=test_base,OSThread=6728,t:clientID=160352,t:applicationName=1CV8C,t:computerName=PCPC1378,t:connectID=3267985,SessionID=49623,
+Usr=Иванов Иван Иванович,Event=Successful service call,RmngrURL=tcp://app:1541,ServiceName=CounterService,TargetCall=0`
+**Разбор параметров:**
+*   `Event=Successful service call` - rphost (человек) запросил записать или прочитать данные из сеансовых данных (сервис SessionDataService).
+*   `RmngrURL=tcp://app:1541` - на каком сервере находится `rmngr`, чтобы получить сеансовые данные.
+
+3. `./26041511.log:2866:22:34.148002-0,CLSTR,2,level=INFO,process=rphost,p:processName=test_base,OSThread=1806,t:clientID=160581,t:applicationName=BackgroundJob,
+t:computerName=app,t:connectID=3273812,SessionID=54611,Usr=Килькина Килька,Event=Service call error,RmngrURL=tcp://app:1541,
+ServiceName=SessionDataService,SessionID=57365790-6fd1-4cd2-8195-840d150133f6,TargetCall=0,DistribData='`
+**Разбор параметров:**
+*   `Event=Service call error` - rphost запросил записать или прочитать данные из сеансовых данных (сервис SessionDataService), но не получилось (может из-за нагрузки, или сеанс уже удален был до окончания фонового).
+*   `RmngrURL=tcp://app:1541` - на каком сервере находится `rmngr`, чтобы получить сеансовые данные.
+*   
 ### 4. Свойства
 *  ApplicationExt — уточнение требования назначения функциональности. Имеется ввиду объект требования (может быть 1CV8C, BackgroundJob и т.д). (rmngr).
 *  Connections - Количество соединений, которым не хватило рабочих процессов.
