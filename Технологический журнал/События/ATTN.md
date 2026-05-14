@@ -66,10 +66,9 @@
     *   *Что значит:* Тот самый текст, который мы обсуждали (превышение памяти, таймаут пинга, процесс не отвечает).
     *   *Зачем админу:* В этом тексте 1С часто пишет **PID того, КТО виноват**. 
     *   *Пример:*
-    * 
     *   Process excess memory limit (Host, PID, Name, MemSize, MaxMemSize).
-    *   Process not respond (Host, PID, Name, Timeout, Attempts).
-    *   Process has generated too big amount of exceptions(Host, PID, Name, CurExceptions, AvgExceptions).
+    *   Process not respond (Host, PID, Name, Timeout, Attempts) - не отвечает, система стартует новый процесс, старый убьет если очнется.
+    *   Process has generated too big amount of exceptions(Host, PID, Name, CurExceptions, AvgExceptions) - генерирует слишком много исключений. На 100 CALL 1 исключение это норма.
     *   Process will be killed (agentURL, procURL, PID, Name).
     *   Abandoned process was alive too long time (agentURL, procURL, PID, Name, Timeout).
 
