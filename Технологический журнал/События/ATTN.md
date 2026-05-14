@@ -65,7 +65,13 @@
 *   **`Descr` (Описание / Текст тревоги)**
     *   *Что значит:* Тот самый текст, который мы обсуждали (превышение памяти, таймаут пинга, процесс не отвечает).
     *   *Зачем админу:* В этом тексте 1С часто пишет **PID того, КТО виноват**. 
-    *   *Пример:* В сообщении `Working process 8544 exceed memory limit` цифра **8544** — это PID конкретного `rphost`, который сожрал память. Ты берешь эту цифру, идешь в Linux (`top -p 8544`) и смотришь, что этот гад делает.
+    *   *Пример:*
+    * 
+    *   Process excess memory limit (Host, PID, Name, MemSize, MaxMemSize).
+    *   Process not respond (Host, PID, Name, Timeout, Attempts).
+    *   Process has generated too big amount of exceptions(Host, PID, Name, CurExceptions, AvgExceptions).
+    *   Process will be killed (agentURL, procURL, PID, Name).
+    *   Abandoned process was alive too long time (agentURL, procURL, PID, Name, Timeout).
 
 ---
 
