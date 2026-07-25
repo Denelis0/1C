@@ -42,3 +42,57 @@ do
 done
 
 read -p "Нажмите Enter для выхода..."
+
+
+<?xml version="1.0"?>
+<config xmlns="http://v8.1c.ru/v8/tech-log">
+
+  <dump create="true" location="C:\LOGS\Dumps\" prntscrn="false" type="3" externaldump="1"/>
+
+  <log history="168" location="C:\LOGS\SRV">
+    <event>
+      <eq property="Name" value="ADMIN"/>
+    </event>
+    <event>
+      <eq property="Name" value="HASP"/>
+    </event>
+    <event>
+      <eq property="Name" value="CONN"/>
+    </event>
+    <event>
+      <eq property="Name" value="CLSTR"/>
+    </event>
+    <event>
+      <eq property="Name" value="EXCP"/>
+    </event>
+    <event>
+      <eq property="Name" value="EXCPCNTX"/>
+    </event>
+    <event>
+      <eq property="Name" value="ATTN"/>
+    </event>
+    <event>
+      <eq property="Name" value="PROC"/>
+    </event>
+    <event>
+      <eq property="Name" value="TDEADLOCK"/>
+    </event>
+    <event>
+      <eq property="Name" value="TTIMEOUT"/>
+    </event>
+    <event>
+      <eq property="Name" value="TLOCK"/>
+      <ge value="3000000" property="Durationus"/>
+    </event>
+    <property name="all"/>
+  </log>
+
+  <log history="48" location="C:\LOGS\LONG">
+    <event>
+      <ne property="Name" value=""/>
+      <gt property="Durationus" value="100000000"/>
+    </event>
+    <property name="all"/>
+  </log>
+
+</config>
